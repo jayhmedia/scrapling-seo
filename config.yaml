@@ -1,0 +1,26 @@
+project:
+  name: "seo-retrieval-scraper"
+  output_dir: "./output"
+
+query_sources:
+  gsc:
+    enabled: true
+    property_url: "sc-domain:example.com"
+    credentials_path: "./secrets/gsc-service-account.json"
+    date_start: "2026-04-01"
+    date_end: "2026-04-30"
+    row_limit: 1000
+  semrush:
+    enabled: false
+    api_key_env: "SEMRUSH_API_KEY"
+    domain: "example.com"
+    database: "us"
+  ahrefs:
+    enabled: false
+    api_key_env: "AHREFS_API_KEY"
+    domain: "example.com"
+
+query_ingestion:
+  min_query_length: 2
+  lowercase_normalization: true
+  dedupe_strategy: "query+source+country+device"
